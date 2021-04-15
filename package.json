@@ -1,0 +1,24 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "back-end ministerio_louvor",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "author": "Davi S. Moya",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "knex": "^0.21.18",
+    "pg": "^8.5.1",
+    "uuidv4": "^6.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
