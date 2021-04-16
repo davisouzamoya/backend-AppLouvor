@@ -2,9 +2,10 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "back-end ministerio_louvor",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon src/index.js",
+    "start": "nodemon src/index.js"
   },
   "author": "Davi S. Moya",
   "license": "ISC",
