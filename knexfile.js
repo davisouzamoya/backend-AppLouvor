@@ -4,13 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: {
-      host: '192.168.99.100',
-      port: '5432',
-      user: 'postgres',
-      password: '123',
-      database: 'postgres'
-    }, 
+    connection: 'postgres://dzeqfhzdsjivzv:397ea716567017b157e3706e8fd8ec3f826b136875dca0f088a49be8c30bce9d@ec2-18-233-83-165.compute-1.amazonaws.com:5432/ddkfo5ttqbjup0', 
     migrations: {
       directory: './src/database/migrations'
     },
@@ -18,11 +12,7 @@ module.exports = {
 
   staging: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection: 'postgres://dzeqfhzdsjivzv:397ea716567017b157e3706e8fd8ec3f826b136875dca0f088a49be8c30bce9d@ec2-18-233-83-165.compute-1.amazonaws.com:5432/ddkfo5ttqbjup0', 
     pool: {
       min: 2,
       max: 10
@@ -34,11 +24,12 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    connection: 'postgres://dzeqfhzdsjivzv:397ea716567017b157e3706e8fd8ec3f826b136875dca0f088a49be8c30bce9d@ec2-18-233-83-165.compute-1.amazonaws.com:5432/ddkfo5ttqbjup0', 
+    // connection: {
+      // database: 'my_db',
+      // user:     'username',
+      // password: 'password'
+    // },
     pool: {
       min: 2,
       max: 10
