@@ -4,10 +4,10 @@ module.exports = {
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    ssl:true,
     migrations: {
         directory: './src/database/migrations'
-    }
+    },
+    ssl: true
 },
   development: {
     client: 'pg',
