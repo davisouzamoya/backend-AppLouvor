@@ -13,7 +13,7 @@ module.exports = {
         musics = await connection('musics')  
       }
       
-      return response.json(musics)
+      return response.json({teste:'Ola Heroku'})
     }catch(err){
       return response.status(400).json({error:err.message})
     }
