@@ -1,1 +1,1 @@
-web: yarn start
+web: knex migrate:rollback && migrate:latest && yarn start
