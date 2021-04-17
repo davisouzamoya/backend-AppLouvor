@@ -7,7 +7,7 @@ module.exports = {
       database: process.env.DATABASE_URL
     },
     migrations: {
-        directory: './src/database/migrations'
+      tableName: 'knex_migrations'
     },
 },
   development: {
