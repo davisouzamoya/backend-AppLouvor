@@ -6,12 +6,14 @@ module.exports = {
     try{
       const { artist, title } = request.headers
       let musics;
+      console.log('artist: '+artist)
+      console.log('title: '+title)
 
-      if(artist){
-         musics = await connection('musics').select('lyrics').where({artist, title})  
-      }else{
-        musics = await connection('musics')  
-      }
+      // if(artist){
+      //    musics = await connection('musics').select('lyrics').where({artist, title})  
+      // }else{
+      //   musics = await connection('musics')  
+      // }
       
       return response.json({teste:'Ola Heroku'})
     }catch(err){
