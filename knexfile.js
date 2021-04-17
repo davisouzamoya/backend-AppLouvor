@@ -3,10 +3,9 @@
 module.exports = {
   production: {
     client: 'pg',
-    
     connection: {
-      // database: process.env.DATABASE_URL+ `?ssl=true`
-      use_env_variable: process.env.DATABASE_URL,
+      connectionString : process.env.DATABASE_URL,
+      ssl: false
     },
     migrations: {
       tableName: 'knex_migrations',
