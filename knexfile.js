@@ -3,7 +3,9 @@
 module.exports = {
   production: {
     client: 'pg',
-    connection: 'postgres://dzeqfhzdsjivzv:397ea716567017b157e3706e8fd8ec3f826b136875dca0f088a49be8c30bce9d@ec2-18-233-83-165.compute-1.amazonaws.com:5432/ddkfo5ttqbjup0',
+    connection: {
+      database: process.env.DATABASE_URL
+    },
     migrations: {
         directory: './src/database/migrations'
     },
