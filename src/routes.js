@@ -39,7 +39,7 @@ async function validUser(request,response,next){
 }
 
 routes.get('/users',users.index)
-routes.post('/users',validUser,users.create)
+routes.post('/users',users.create)
 routes.delete('/users/:id',users.delete)
 routes.put('/users/:id',users.put)
 
