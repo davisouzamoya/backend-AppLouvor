@@ -42,7 +42,7 @@ module.exports = {
         lyrics
       })
   
-      return response.json('Cadastrado com sucesso!')
+      return response.json(request.body)
     }catch(err){
       return response.status(400).json({error:err.message})
     }
