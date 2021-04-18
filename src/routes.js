@@ -44,7 +44,7 @@ routes.delete('/users/:id',users.delete)
 routes.put('/users/:id',users.put)
 
 routes.get('/music',music.index)
-routes.post('/music',validCreate,music.create)
+routes.post('/music',music.create)
 routes.put('/music',music.put)
 routes.delete('/music',music.delete)
 
