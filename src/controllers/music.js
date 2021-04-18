@@ -6,16 +6,14 @@ module.exports = {
     try{
       const { artist, title } = request.headers
       let musics;
-      console.log('artist: '+artist)
-      console.log('title: '+title)
 
-      // if(artist){
-      //    musics = await connection('musics').select('lyrics').where({artist, title})  
-      // }else{
-      //   musics = await connection('musics')  
-      // }
+      if(artist){
+         musics = await connection('musics').select('lyrics').where({artist, title})  
+      }else{
+        musics = await connection('musics')  
+      }
       
-      return response.json(request.headers)
+      return response.json(musics)
     }catch(err){
       return response.status(400).json({error:err.message})
     }
@@ -41,17 +39,8 @@ module.exports = {
         url,
         lyrics
       })
-      const valotes = {
-        id,
-        valid,
-        artist,
-        title,
-        url,
-        lyrics
-      }
-        
   
-      return response.json(valotes)
+      return response.json('Cadastrado com sucesso!')
     }catch(err){
       return response.status(400).json({error:err.message})
     }

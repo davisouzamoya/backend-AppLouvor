@@ -39,12 +39,12 @@ async function validUser(request,response,next){
 }
 
 routes.get('/users',users.index)
-routes.post('/users',users.create)
+routes.post('/users',validUser,users.create)
 routes.delete('/users/:id',users.delete)
 routes.put('/users/:id',users.put)
 
 routes.get('/music',music.index)
-routes.post('/music',music.create)
+routes.post('/music',validCreate,music.create)
 routes.put('/music',music.put)
 routes.delete('/music',music.delete)
 
