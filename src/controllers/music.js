@@ -23,15 +23,15 @@ module.exports = {
   },
   async create(request, response){
     try{
-      // const { 
-      //   valid,
-      //   artist,
-      //   title,
-      //   url,
-      //   lyrics
-      // } = request.body;
+      const { 
+        valid,
+        artist,
+        title,
+        url,
+        lyrics
+      } = request.body;
 
-      // const id = crypto.randomBytes(4).toString('HEX')
+      const id = crypto.randomBytes(4).toString('HEX')
   
       // await connection('musics').insert({
       //   id,
@@ -41,8 +41,17 @@ module.exports = {
       //   url,
       //   lyrics
       // })
+      const valotes = {
+        id,
+        valid,
+        artist,
+        title,
+        url,
+        lyrics
+      }
+        
   
-      return response.json(request.headers)
+      return response.json(valotes)
     }catch(err){
       return response.status(400).json({error:err.message})
     }
