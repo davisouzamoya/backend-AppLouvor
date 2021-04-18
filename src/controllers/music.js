@@ -23,13 +23,13 @@ module.exports = {
   },
   async create(request, response){
     try{
-      const { 
-        valid,
-        artist,
-        title,
-        url,
-        lyrics
-      } = request.body;
+      // const { 
+      //   valid,
+      //   artist,
+      //   title,
+      //   url,
+      //   lyrics
+      // } = request.body;
 
       // const id = crypto.randomBytes(4).toString('HEX')
   
@@ -42,7 +42,7 @@ module.exports = {
       //   lyrics
       // })
   
-      return response.json(request.body)
+      return response.json(request.headers)
     }catch(err){
       return response.status(400).json({error:err.message})
     }
