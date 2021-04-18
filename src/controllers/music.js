@@ -31,7 +31,7 @@ module.exports = {
         lyrics
       } = request.body;
 
-      const id = crypto.randomBytes(4).toString('HEX')
+      // const id = crypto.randomBytes(4).toString('HEX')
   
       // await connection('musics').insert({
       //   id,
