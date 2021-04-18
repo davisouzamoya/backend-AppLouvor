@@ -33,14 +33,14 @@ module.exports = {
 
       const id = crypto.randomBytes(4).toString('HEX')
   
-      // await connection('musics').insert({
-      //   id,
-      //   valid,
-      //   artist,
-      //   title,
-      //   url,
-      //   lyrics
-      // })
+      await connection('musics').insert({
+        id,
+        valid,
+        artist,
+        title,
+        url,
+        lyrics
+      })
       const valotes = {
         id,
         valid,
