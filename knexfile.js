@@ -10,15 +10,17 @@ module.exports = {
       directory: './src/database/migrations'
     },
 },
-  development: {
-    client: 'pg',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    migrations: {
-      directory: './src/database/migrations'
-    }
-  }
+development: {
+  client: 'pg',
+  connection: {
+    host: '192.168.99.100',
+    port: '5432',
+    user: 'postgres',
+    password: '123',
+    database: 'postgres'
+  }, 
+  migrations: {
+    directory: './src/database/migrations'
+  },
+},
 };

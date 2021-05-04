@@ -20,6 +20,7 @@ module.exports = {
     
   },
   async create(request, response){
+    console.log('------------------ INIT -----------------------')
     try{
       const { 
         valid,
@@ -29,8 +30,10 @@ module.exports = {
         lyrics
       } = request.body;
 
+      console.log(request.body)
       const id = crypto.randomBytes(4).toString('HEX')
-  
+      console.log(id)
+      
       await connection('musics').insert({
         id,
         valid,
@@ -64,6 +67,7 @@ module.exports = {
     }
   },
   async delete(request, response){
+    console.log('route delete')
     try{
       const { artist, title } = request.headers
       

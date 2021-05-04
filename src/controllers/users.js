@@ -1,31 +1,45 @@
 const crypto =  require('crypto');
 const connection = require('../database/connection');
 const bcrypt = require('bcrypt');
+const jwt =  require('jsonwebtoken');
+
+const authConfig = require('../config/auth')
 
 module.exports = {
   async index(request, response){
     try{
       console.log('------------- Nova consulta ------------')
       const { email,password } = request.headers
+      
       const user = await connection('users').select('*').where({email})
+      
       if (!user) {
-        response.status(401).json({error:'Usuario não encontrado'})
+        response.status(400).json({error:'Usuario não encontrado'})
       }
 
       if(!user[0].active) {
-        response.status(401).json({error:'Usuario desativado'})
+        response.status(400).json({error:'Usuario desativado'})
       }
 
       console.log('------------------------------------------')
       console.log('--------passwordMatche -------------------')
       console.log('------------------------------------------')
       const passwordMatched = await bcrypt.compare(password, user[0].password);
-      console.log(passwordMatched)
+      
       if (!passwordMatched) {   
-        response.status(401).json({error:'Senha incorreta'})
+        response.status(400).json({error:'Senha incorreta'})
       }
 
-      return response.json({id:user[0].id,userFunction:user[0].funcao,name:user[0].nome})
+      user[0].password = undefined;
+
+      const token = jwt.sign({id:user[0].id}, authConfig.secret)
+
+      return response.json({
+        id:user[0].id,
+        userFunction:user[0].funcao,
+        name:user[0].nome,
+        token
+      })
     }catch(err){
       return response.status(400).json({error:err.message})
     }
@@ -51,7 +65,7 @@ module.exports = {
       const id = crypto.randomBytes(4).toString('HEX')
       const hashedPassowrd = await bcrypt.hash(password, 10)
 
-      const users = await connection('users').insert({
+      await connection('users').insert({
         id,
         nome,
         email,
@@ -62,8 +76,12 @@ module.exports = {
         active,
         password:hashedPassowrd
       })
+
+      delete password;
+
+      const token = jwt.sign({id:user[0].id}, authConfig.secret)
     
-      return response.json(users)
+      return response.status(200).send('Cadastro realizado com sucesso!')
     }catch(err){
       return response.status(400).json({error:err.message})
     }
