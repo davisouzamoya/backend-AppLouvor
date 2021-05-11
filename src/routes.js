@@ -69,13 +69,13 @@ async function validUser(request,response,next){
 
 
 routes.get('/users',users.index)
-routes.post('/users',validUser,users.create)
+routes.post('/users',      validUser,users.create)
+routes.put('/users/:id',   validToken,users.put)
 routes.delete('/users/:id',validToken,users.delete)
-routes.put('/users/:id',validToken,users.put)
 
-routes.get('/music',music.index)
-routes.post('/music',validToken,validCreate,music.create)
-routes.put('/music',validToken,music.put)
+routes.get('/music',   validToken,music.index)
+routes.post('/music',  validToken,validCreate,music.create)
+routes.put('/music',   validToken,music.put)
 routes.delete('/music',validToken,music.delete)
 
 module.exports = routes;
