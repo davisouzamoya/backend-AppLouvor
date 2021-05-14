@@ -78,9 +78,7 @@ module.exports = {
       })
 
       delete password;
-
-      const token = jwt.sign({id:user[0].id}, authConfig.secret)
-    
+      
       return response.status(200).send('Cadastro realizado com sucesso!')
     }catch(err){
       return response.status(400).json({error:err.message})
